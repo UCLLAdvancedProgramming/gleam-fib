@@ -1,12 +1,16 @@
 import gleam/int
 import gleam/io
 
+// Tail recursive implementation
 pub fn fib(n: Int) {
-  case n {
-    _ if n < 0 -> panic as "n should not be negative!"
-    0 -> 0
-    1 -> 1
-    _ -> fib(n - 1) + fib(n - 2)
+  do_fib(n, 0, 1)
+}
+
+fn do_fib(i: Int, a: Int, b: Int) {
+  case i {
+    _ if i < 0 -> panic as "i should not be negative!"
+    0 -> a
+    _ -> do_fib(i - 1, b, a + b)
   }
 }
 
