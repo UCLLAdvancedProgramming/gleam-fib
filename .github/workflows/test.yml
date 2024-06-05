@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - main
+      - solution
   pull_request:
 
 jobs:
